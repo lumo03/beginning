@@ -6,34 +6,28 @@ import { useState } from 'react';
 
 function Clonen() {
 
-    const [zeichen, setZeichen] = useState('');
-    const [ergebnis, setErgebnis] = useState([1, 2]);
-    const [display, setDisplay] = useState(ergebnis.map(e => (
-        <div key={e}>{e}</div>
-    )));
+    const [result, setResult] = useState([])
+    const [value, setValue] = useState('');
 
-
-    const appendErgebnis = (append) => {
-        setErgebnis([...ergebnis, append]);
+    const appendToResult = () => {
+        setResult([
+            ...result,
+            {
+                id: result.length,
+                value: value
+            }
+        ])
     }
-    const handleChange = event => {
-        setZeichen(event.target.value);
-    };
-
-    const handleClick = () => {
-        appendErgebnis(zeichen)
-    };
 
     return (
         <Page title="Clonen" type="clonen">
-
-            <InputField placeholder="Text zum Clonen..." value={zeichen} onChange={handleChange} />
-            <Button text="Anhängen" />
-
-            <div>
-                {display}
-            </div>
-
+            <InputField placeholder="Text zum Clonen..." value={value} onChange={(event) => setValue(event.target.value)} />
+            <Button text="Anhängen" onClick={appendToResult} />
+            <ul>
+                {result.map(result => (
+                    <li key={result.id}>{result.value}</li>
+                ))}
+            </ul>
         </Page>
     )
 }

@@ -4,7 +4,11 @@ import Page from '../components/Page';
 function Home() {
     return (
         <Page title="Home" type="home">
-            <p>Hallo Welt!</p>
+            <p className="text-xl">Welcome to my first complete and beautifully designed React project!</p>
+            <br />
+            <p>You are currently on the "Home" page. To change the page just click on the corresponding page title in the menu bar.</p>
+            < br />
+            <p>To return here, you just have to click on "Home" or the logo (in the left of the menu bar).</p>
         </Page>
     )
 }

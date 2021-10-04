@@ -14,13 +14,13 @@ function Nav() {
                         <div className="flex items-center">
                             <div className="flex-shrink-0">
                                 <Link to="/">
-                                <img
-                                    className="h-8 w-8"
-                                    //src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                                    src={process.env.PUBLIC_URL + '/mso_purple_transparent.svg'}
-                                    alt="Workflow"
+                                    <img
+                                        className="h-8 w-8"
+                                        //src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                                        src={process.env.PUBLIC_URL + '/mso_purple_transparent.svg'}
+                                        alt="Workflow"
                                     //className="transform scale-10"
-                                />
+                                    />
                                 </Link>
                             </div>
                             <div className="hidden md:block">
@@ -88,7 +88,7 @@ function Nav() {
                     {(ref) => (
                         <div className="md:hidden" id="mobile-menu">
                             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                                <RoutingLinks className="block"/>
+                                <RoutingLinks className="block" />
                             </div>
                         </div>
                     )}
