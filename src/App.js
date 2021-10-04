@@ -6,19 +6,17 @@ import Rechnen from './pages/Rechnen';
 import Clonen from './pages/Clonen';
 import Doppeln from './pages/Doppeln';
 import Buttons from './pages/Buttons';
-import { /*connect,*/ useSelector } from 'react-redux';
-import { setPage } from './actions';
+import { useSelector } from 'react-redux';
 
 // HOST=0.0.0.0 npm run start
 
-function App(/*props*/) {
-  //let page = props.page;
+function App() {
 
-  let page = useSelector((state) => state.page);
+  const { page } = useSelector((state) => state.page);
 
-  page = page.charAt(0).toUpperCase() + page.slice(1);
+  let thisPage = page.charAt(0).toUpperCase() + page.slice(1);
 
-  document.title = "Beginning - "+page;
+  document.title = "Beginning - "+thisPage;
   
   return (
     <div className="App">
@@ -33,9 +31,5 @@ function App(/*props*/) {
     </div>
   );
 }
-/*const mapStateToProps = (state) => {
-  return { page: state.page };
-}
-*/
 
-export default /*connect(mapStateToProps, { setPage })*/(App);
+export default App;

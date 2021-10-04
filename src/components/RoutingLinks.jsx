@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Router, Link } from "react-router-dom";
 
 function RoutingLinks(props) {
-    let page = props.page;
+    const { page } = useSelector((state) => state.page);
     if (page === 'rechnen') {
         return (
             <>
@@ -198,8 +198,4 @@ function RoutingLinks(props) {
     
 }
 
-const mapStateToProps = (state) => {
-    return { page: state.page };
-}
-
-export default connect(mapStateToProps)(RoutingLinks);
+export default RoutingLinks;

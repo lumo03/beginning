@@ -1,10 +1,9 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
-import { setPage } from '../actions';
+import { useDispatch } from 'react-redux';
+import { setPage } from './../redux/page';
 
-function Page(props) {
+const Page = (props) => {
 
-    //props.setPage(props.type);
     const dispatch = useDispatch();
     dispatch(setPage(props.type));
 
@@ -30,8 +29,4 @@ function Page(props) {
     )
 }
 
-const mapStateToProps = (state) => {
-    return { page: state.page };
-}
-
-export default connect(mapStateToProps, { setPage })(Page);
+export default Page;

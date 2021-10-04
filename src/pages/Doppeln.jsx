@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Page from '../components/Page';
 import Button from '../components/Button';
 import InputField from '../components/InputField';
