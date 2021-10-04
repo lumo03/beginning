@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from "react-router-dom";
+import "./App.css";
+import Nav from "./components/Nav";
+import Home from './pages/Home';
+import Rechnen from './pages/Rechnen';
+import Clonen from './pages/Clonen';
+import Doppeln from './pages/Doppeln';
+import Buttons from './pages/Buttons';
+import { /*connect,*/ useSelector } from 'react-redux';
+import { setPage } from './actions';
 
-function App() {
+// HOST=0.0.0.0 npm run start
+
+function App(/*props*/) {
+  //let page = props.page;
+
+  let page = useSelector((state) => state.page);
+
+  page = page.charAt(0).toUpperCase() + page.slice(1);
+
+  document.title = "Beginning - "+page;
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Nav />
+        <Route path={['/', '/home']} exact={true} component={Home} />
+        <Route path='/rechnen' component={Rechnen} />
+        <Route path='/clonen' component={Clonen} />
+        <Route path='/doppeln' component={Doppeln} />
+        <Route path='/Buttons' component={Buttons} />
+      </BrowserRouter>
     </div>
   );
 }
+/*const mapStateToProps = (state) => {
+  return { page: state.page };
+}
+*/
 
-export default App;
+export default /*connect(mapStateToProps, { setPage })*/(App);
