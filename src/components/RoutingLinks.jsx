@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Router, Link } from "react-router-dom";
+import { pages } from '../data.js';
 
 function RoutingLinks(props) {
-    const { page } = useSelector((state) => state.page);
+    const name = useSelector((state) => state.page.name);
 
     const setCSS = (thisPage) => {
         return (
-            thisPage === page ?
+            thisPage === name ?
                 "hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium" :
                 "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
         );
@@ -15,39 +16,9 @@ function RoutingLinks(props) {
 
     return (
         <>
-            <Link
-                to="/home"
-                className={setCSS('home')}>
-                Home
-            </Link>
-
-            <Link
-                to="/rechnen"
-                className={setCSS('rechnen')}
-            >
-                Rechnen
-            </Link>
-
-            <Link
-                to="/clonen"
-                className={setCSS('clonen')}
-            >
-                Clonen
-            </Link>
-
-            <Link
-                to="/doppeln"
-                className={setCSS('doppeln')}
-            >
-                Doppeln
-            </Link>
-
-            <Link
-                to="/buttons"
-                className={setCSS('buttons')}
-            >
-                Buttons
-            </Link>
+            {pages.map(({url, name, title}) => (
+                <Link key={name} to={url} className={setCSS(name)}>{title}</Link>
+            ))}
         </>
     )
 

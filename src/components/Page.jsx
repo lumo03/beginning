@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setPage } from './../redux/page';
+import { setPage } from '../redux/page';
 
 const Page = (props) => {
 

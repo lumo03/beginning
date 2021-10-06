@@ -8,6 +8,7 @@ function Home() {
             <br />
             <p>You are currently on the "Home" page. To change the page just click on the corresponding page title in the menu bar.</p>
             < br />
+            <img src={process.env.PUBLIC_URL + "/cat_image.jpg"} width="200" className="m-4 md-6"/>
             <p>To return here, you just have to click on "Home" or the logo (in the left of the menu bar).</p>
         </Page>
     )

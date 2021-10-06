@@ -3,6 +3,6 @@ import pageReducer from "./page";
 
 export default configureStore({
   reducer: {
-    page: pageReducer,
+    page: pageReducer
   },
 });
